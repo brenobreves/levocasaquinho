@@ -104,7 +104,7 @@ const SCNavBar = styled.div`
     line-height: 48px; 
     padding:60px 0px 0px 50px;
     gap:72px;
-    margin-bottom:100px;
+    margin-bottom:50px;
 `
 
 const SCRightPannel = styled.div`

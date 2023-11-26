@@ -55,6 +55,13 @@ function WeatherInfos({weather, deg, forecast, today}) {
                     </SCInfoData>
                 </SCInfoBlock>
             </SCDoubleInfoWrapper>
+            <SCRecomendation>
+                {weather.main.temp < 290.15 || weather.main.temp_min < 290.15 ?
+                    "Sim, você deve levar um casaquinho!"
+                :
+                    "Não, você não deve levar um casaquinho!"
+                }
+            </SCRecomendation>
         </>
         :
         <>
@@ -64,6 +71,17 @@ function WeatherInfos({weather, deg, forecast, today}) {
        </>
   )
 }
+
+const SCRecomendation = styled.div`
+    color: #AFADAD;
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 48px;
+    margin-top: 50px;
+    margin-left: 50px;
+`
 
 const SCInfoData = styled.div`
     width:auto;
