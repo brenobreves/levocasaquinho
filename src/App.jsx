@@ -8,8 +8,8 @@ function App() {
   const [forecast, setForecast] = useState()
   return ( 
     <PageContainer>
-      <LeftPannel weather={weather} setWeather={setWeather} deg={deg} setDeg={setDeg} forecast={forecast} setForecast={setForecast}/>
-      <RightPannel/>
+      <LeftPannel weather={weather} setWeather={setWeather} deg={deg} setDeg={setDeg} setForecast={setForecast}/>
+      <RightPannel weather={weather} deg={deg} forecast={forecast}/>
     </PageContainer>
   )
 }

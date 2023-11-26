@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 
-function RightPannel() {
+function RightPannel({weather, deg, forecast}) {
 
   return ( 
     <SCRightPannel>
