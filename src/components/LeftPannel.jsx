@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Logo from './Logo'
 import axios from 'axios'
 
-function LeftPannel({weather, setWeather, deg, setDeg}) {
+function LeftPannel({weather, setWeather, deg, setDeg, forecast, setForecast}) {
     const [cityName,setCityName] = useState("")
     const [cityData, setCityData] = useState({})
     async function handleKeyDown(e){
@@ -19,12 +19,19 @@ function LeftPannel({weather, setWeather, deg, setDeg}) {
         })
         promise.then((response)=>{
             setCityData(response.data[0])
-            const promise = axios.get(`${import.meta.env.VITE_WEATHER_API_URL}?lat=${response.data[0].lat}&lon=${response.data[0].lon}&appid=${import.meta.env.VITE_API_KEY}`)
-            promise.catch((erro)=>{
+            const getWeather = axios.get(`${import.meta.env.VITE_WEATHER_API_URL}?lat=${response.data[0].lat}&lon=${response.data[0].lon}&appid=${import.meta.env.VITE_API_KEY}`)
+            getWeather.catch((erro)=>{
                 console.log(erro);
             })
-            promise.then((response)=>{
+            getWeather.then((response)=>{
                 setWeather(response.data)
+            })
+            const getForecast = axios.get(`${import.meta.env.VITE_FORECAST_API_URL}?lat=${response.data[0].lat}&lon=${response.data[0].lon}&appid=${import.meta.env.VITE_API_KEY}`)
+            getForecast.catch((erro)=>{
+                console.log(erro);
+            })
+            getForecast.then ((response)=>{
+                setForecast(response.data)
             })
         })
     }
