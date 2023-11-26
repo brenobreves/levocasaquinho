@@ -18,7 +18,7 @@ const SCWellcomeDesc = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items:flex-start;
-    padding:10px 0px 0px 110px;
+    padding:10px 0px 0px 60px;
     color: #222;
     font-family: Poppins, sans-serif;
     font-size: 30px;
@@ -31,7 +31,7 @@ const SCWellcomeMsg = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items:flex-start;
-    padding:50px 0px 0px 100px;
+    padding:50px 0px 0px 50px;
     color: #222;
     font-family: Poppins, sans-serif;
     font-size: 150px;
