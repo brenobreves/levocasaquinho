@@ -1,27 +1,43 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import Logo from './Logo'
+import axios from 'axios'
 
-function LeftPannel() {
+function LeftPannel({weather, setWeather, deg, setDeg}) {
     const [cityName,setCityName] = useState("")
-    
-    function handleKeyDown(e){
+    const [cityData, setCityData] = useState({})
+    async function handleKeyDown(e){
         if(e.key === 'Enter'){
+            await getCityData()
         }
+    }
+
+    async function getCityData(){
+        const promise = axios.get(`${import.meta.env.VITE_GEO_API_URL}?q=${cityName}&limit=1&appid=${import.meta.env.VITE_API_KEY}`)
+        promise.catch((erro)=>{
+            console.log(erro);
+        })
+        promise.then((response)=>{
+            setCityData(response.data[0])
+            const promise = axios.get(`${import.meta.env.VITE_WEATHER_API_URL}?lat=${response.data[0].lat}&lon=${response.data[0].lon}&appid=${import.meta.env.VITE_API_KEY}`)
+            promise.catch((erro)=>{
+                console.log(erro);
+            })
+            promise.then((response)=>{
+                setWeather(response.data)
+            })
+        })
     }
   return ( 
     <SCLeftPannel>
         <Logo/>
         <SCInputWrapper>
-            <SCInputImg src='../../src/assets/search.svg'/>
+            <img src='../../src/assets/search.svg'/>
             <SCSearchInput placeholder='Procure por uma cidade' type='text' value={cityName} onChange={(e) => setCityName(e.target.value)} onKeyDown={handleKeyDown}/>
         </SCInputWrapper>       
     </SCLeftPannel>
   )
 }
-
-const SCInputImg = styled.img`
-`
 
 const SCInputWrapper = styled.div`
     display:flex;
@@ -29,7 +45,7 @@ const SCInputWrapper = styled.div`
     justify-content:left;
     width: 445px;
     padding-left:18px;
-    padding-bottom:70px;
+    margin-bottom:70px;
     height: 80px;
     flex-shrink: 0; 
     border-radius: 24px;

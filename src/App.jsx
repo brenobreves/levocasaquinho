@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 import LeftPannel from './components/LeftPannel'
 import RightPannel from './components/RightPannel'
+import { useState } from 'react'
 function App() {
-
+  const [weather, setWeather] = useState()
+  const [deg, setDeg] = useState("C")
   return ( 
     <PageContainer>
-      <LeftPannel/>
+      <LeftPannel weather={weather} setWeather={setWeather} deg={deg} setDeg={setDeg}/>
       <RightPannel/>
     </PageContainer>
   )
