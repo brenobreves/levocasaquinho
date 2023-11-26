@@ -32,7 +32,7 @@ function LeftPannel({weather, setWeather, deg, setDeg}) {
     <SCLeftPannel>
         <Logo/>
         <SCInputWrapper>
-            <img src='../../src/assets/search.svg'/>
+            <img src='../../src/assets/search.svg' onClick={getCityData}/>
             <SCSearchInput placeholder='Procure por uma cidade' type='text' value={cityName} onChange={(e) => setCityName(e.target.value)} onKeyDown={handleKeyDown}/>
         </SCInputWrapper>       
     </SCLeftPannel>
