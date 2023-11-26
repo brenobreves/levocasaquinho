@@ -58,7 +58,7 @@ function WeatherInfos({weather, deg, forecast, today}) {
         </>
         :
         <>
-            Forecast
+            
         </>
         }
        </>

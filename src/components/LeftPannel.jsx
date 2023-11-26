@@ -7,14 +7,32 @@ import Switch from "react-switch";
 
 function LeftPannel({weather, setWeather, deg, setDeg, setForecast}) {
     const [cityName,setCityName] = useState("")
-    const [cityData, setCityData] = useState({})
     const [iconUrl, setIconUrl] = useState("")
     const date = dayjs().format('DD/MM/YYYY')
     const day = dayjs().day()
     const hour = dayjs().hour()
     const minute = dayjs().minute()
     const semana = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"]
-
+    const tempColor = {
+        "01n":"#EC6E4C",
+        "02n":"grey",
+        "03n":"grey",
+        "04n":"grey",
+        "09n":"lightblue",
+        "10n":"blue",
+        "11n":"purple",
+        "13n":"lightgrey",
+        "50n":"lightgrey",
+        "01d":"#EC6E4C",
+        "02d":"grey",
+        "03d":"grey",
+        "04d":"grey",
+        "09d":"lightblue",
+        "10d":"blue",
+        "11d":"purple",
+        "13d":"lightgrey",
+        "50d":"lightgrey",
+    };
 
     function handleSwitchF(){
         if(deg === "C"){
@@ -35,14 +53,14 @@ function LeftPannel({weather, setWeather, deg, setDeg, setForecast}) {
             console.log(erro);
         })
         promise.then((response)=>{
-            setCityData(response.data[0])
             const getWeather = axios.get(`${import.meta.env.VITE_WEATHER_API_URL}?lat=${response.data[0].lat}&lon=${response.data[0].lon}&appid=${import.meta.env.VITE_API_KEY}&lang=pt`)
             getWeather.catch((erro)=>{
                 console.log(erro);
             })
             getWeather.then((response)=>{
                 setWeather(response.data)
-                setIconUrl(`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+                const icon = `${response.data.weather[0].icon}`
+                setIconUrl(`https://openweathermap.org/img/wn/${icon}@2x.png`)
                 console.log(response.data)
             })
             const getForecast = axios.get(`${import.meta.env.VITE_FORECAST_API_URL}?lat=${response.data[0].lat}&lon=${response.data[0].lon}&appid=${import.meta.env.VITE_API_KEY}`)
@@ -65,10 +83,10 @@ function LeftPannel({weather, setWeather, deg, setDeg, setForecast}) {
          <>
             <SCWeatherInfo>
                 <SCWeatherIcon src={iconUrl}/>
-                <SCWeatherTemp>
+                <SCWeatherTemp customColor={tempColor[weather.weather[0].icon]}>
                     {deg === "C" ? Math.floor(weather.main.temp - 273.15) : Math.floor((weather.main.temp - 273.15)*1.8+32)}
                 </SCWeatherTemp>
-                <SCDeg>°{deg}</SCDeg>
+                <SCDeg customColor={tempColor[weather.weather[0].icon]}>°{deg}</SCDeg>
             </SCWeatherInfo>
             <SCWeatherDetail>
                 {weather.weather[0].description[0].toUpperCase()+weather.weather[0].description.slice(1)}
@@ -156,7 +174,7 @@ const SCDeg = styled.div`
     display:flex;
     justify-content:top;
     align-items:flex-start;
-    color: #EC6E4C;
+    color:${(props) => props.customColor};
     font-family: Poppins, sans-serif;
     font-size: 120px;
     font-style: normal;
@@ -166,7 +184,7 @@ const SCDeg = styled.div`
 `
 
 const SCWeatherTemp = styled.p`
-    color: #EC6E4C;
+    color:${(props) => props.customColor};
     font-family: Poppins,sans-serif;
     font-size: 144px;
     font-style: normal;
