@@ -2,7 +2,7 @@ import styled from 'styled-components'
 function Logo() {
   return ( 
         <SCLogo>
-            <SCLogoImg src="../../src/assets/hoodie.svg"/>
+            <SCLogoImg src="/hoodie.svg"/>
             <SCLogoP>Levo um casaquinho?</SCLogoP> 
         </SCLogo>
   )
