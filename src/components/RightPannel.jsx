@@ -34,11 +34,11 @@ function RightPannel({weather, deg, forecastC, forecastF}) {
 const SCPageLink = styled.a`
     color: #96A7F2;
     font-family: Poppins;
-    font-size: 24px;
+    font-size: 21.6px;
     font-style: normal;
     font-weight: 400;
-    line-height: 48px; 
-    text-decoration: none
+    line-height: 43.2px; 
+    text-decoration: none;
 ` 
 
 const SCDisclaimer = styled.div`
@@ -46,32 +46,32 @@ const SCDisclaimer = styled.div`
     justify-content:flex-start;
     align-items:flex-start;
     position:absolute;
-    bottom:20px;
+    bottom:18px;
     color: #222;
     font-family: Poppins, sans-serif;
-    font-size: 24px;
+    font-size: 21.6px;
     font-style: normal;
     font-weight: 400;
-    line-height: 48px;
-    padding-left: 50px;
-    gap: 5px;
+    line-height: 43.2px;
+    padding-left: 45px;
+    gap: 4.5px;
 `
 
 const SCLatLonWrapper = styled.div`
     display:flex;
     justify-content:flex-start;
     align-items:flex-start;
-    padding:0px 0px 0px 60px;
-    gap:20px;
+    padding:0px 0px 0px 54px;
+    gap:18px;
 `
 
 const SCLatLon = styled.span`
     color: #222;
     font-family: Poppins, sans-serif;
-    font-size: 24px;
+    font-size: 21.6px;
     font-style: normal;
     font-weight: 400;
-    line-height: 48px;
+    line-height: 43.2px;
 `
 
 const SCCityName = styled.div`
@@ -79,13 +79,13 @@ const SCCityName = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items:flex-start;
-    padding:0px 0px 10px 50px;
+    padding:0px 0px 9px 45px;
     color: #222;
     font-family: Poppins, sans-serif;
     font-size: 6vw;
     font-style: normal;
     font-weight: 400;
-    line-height: 150px;
+    line-height: 135px;
 `
 
 const SCNavP = styled.p`
@@ -98,13 +98,13 @@ const SCNavBar = styled.div`
     align-items:flex-start;
     color: #222;
     font-family: Poppins, sans-serif;
-    font-size: 48px;
+    font-size: 43.6px;
     font-style: normal;
     font-weight: 400;
-    line-height: 48px; 
-    padding:60px 0px 0px 50px;
-    gap:72px;
-    margin-bottom:50px;
+    line-height: 43.2px; 
+    padding:54px 0px 0px 45px;
+    gap:64.8px;
+    margin-bottom:45px;
 `
 
 const SCRightPannel = styled.div`

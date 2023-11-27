@@ -46,11 +46,11 @@ const SCChartWrapper = styled.div`
     align-items:center;
     justify-content:center;
     background-color:white;
-    margin-left: 50px;
-    margin-top:75px;
-    height:450px;
-    width:1050px;
-    padding-right:50px;
+    margin-left: 45px;
+    margin-top:67.5px;
+    height:405px;
+    width:945px;
+    padding-right:45px;
 `
 
 const SCChartTolltip = styled.div`
@@ -59,10 +59,10 @@ const SCChartTolltip = styled.div`
     justify-content:space-evenly;
     align-items:flex-start;
     background-color: #EFEFEF;
-    border-radius:10px;
-    padding:5px;
-    height:100px;
-    padding:0px 10px 0px 10px;
+    border-radius:9px;
+    padding:4.5px;
+    height:90px;
+    padding:0px 9px 0px 9px;
     font-family: Poppins, sans-serif;
 `
 

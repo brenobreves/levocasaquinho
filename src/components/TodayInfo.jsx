@@ -66,12 +66,12 @@ function TodayInfo({weather, deg}) {
 const SCRecomendation = styled.div`
     color: #AFADAD;
     font-family: Poppins, sans-serif;
-    font-size: 24px;
+    font-size: 21.6px;
     font-style: italic;
     font-weight: 400;
-    line-height: 48px;
-    margin-top: 50px;
-    margin-left: 50px;
+    line-height: 43.2px;
+    margin-top: 45px;
+    margin-left: 45px;
 `
 
 const SCInfoData = styled.div`
@@ -79,11 +79,11 @@ const SCInfoData = styled.div`
     height:auto;
     color: #FFF;
     font-family: Poppins, sans-serif;
-    font-size: 48px;
+    font-size: 43.6px;
     font-style: normal;
     font-weight: 700;
-    line-height: 36px;
-    padding-top: 13px;
+    line-height: 32.4px;
+    padding-top: 11.7px;
 `
 
 const SCInfoHL = styled.div`
@@ -91,10 +91,10 @@ const SCInfoHL = styled.div`
     height:auto;
     color: #FFF;
     font-family: Poppins, sans-serif;
-    font-size: 22px;
+    font-size: 19.8px;
     font-style: normal;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 21.6px;
 `
 
 const SCInfoBlock = styled.div`
@@ -102,21 +102,21 @@ const SCInfoBlock = styled.div`
     flex-direction:column;
     justify-content:center;
     align-items:flex-start;
-    padding:50px 0px 50px 45px;
-    border-radius:32px;
+    padding:45px 0px 45px 40.5px;
+    border-radius:28.8px;
     background: linear-gradient(117deg, #4D4494 22.83%, #4F43AE 90.03%); 
-    box-shadow: 0px 24px 48px 0px rgba(49, 79, 124, 0.08); 
-    width: 500px;
-    height: 85px;  
+    box-shadow: 0px 21.6px 43.2px 0px rgba(49, 79, 124, 0.08); 
+    width: 450px;
+    height: 76.5px;  
 `
 
 const SCDoubleInfoWrapper = styled.div`
     display:flex;
     justify-content: space-between;
     align-items:flex-start;
-    margin-left: 50px;
-    margin-top: 50px;
-    gap:100px;
+    margin-left: 45px;
+    margin-top: 45px;
+    gap:90px;
 `
 
 

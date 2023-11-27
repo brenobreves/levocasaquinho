@@ -139,12 +139,12 @@ function LeftPannel({weather, setWeather, deg, setDeg, setForecastC, setForecast
 const SCDisclaimer = styled.p`
     color: #222;
     font-family: Poppins,sans-serif;
-    font-size: 24px;
+    font-size: 21.6px;
     font-style: normal;
     font-weight: 400;
-    line-height: 48px;
+    line-height: 43.2px;
     position:absolute;
-    bottom:20px;
+    bottom:18px;
 `
 
 const SCSwitchWrapper = styled.div`
@@ -152,16 +152,16 @@ const SCSwitchWrapper = styled.div`
     justify-content:flex-start;
     align-items:center;
     width:33%;
-    gap:30px;
+    gap:27px;
 `
 
 const SCSwitchSpan = styled.span`
     color: #222;
     font-family: Poppins;
-    font-size: 24px;
+    font-size: 21.6px;
     font-style: normal;
     font-weight: 400;
-    line-height: 48px;
+    line-height: 43.2px;
 `
 
 const SCDatenday = styled.div`
@@ -171,32 +171,32 @@ const SCDatenday = styled.div`
     align-items:center;
     color: #222;
     font-family: Poppins, sans-serif;
-    font-size: 24px;
+    font-size: 21.6px;
     font-style: normal;
     font-weight: 400;
-    line-height: 48px;
-    margin-bottom:34px;
+    line-height: 43.2px;
+    margin-bottom:30.6px;
 ` 
 
 const SCDivisor = styled.div`
-    width: 395px;
-    height: 5px; 
+    width: 355.5px;
+    height: 4.5px; 
     background-color: #EDEDED; 
-    margin-bottom:46px;
+    margin-bottom:41.4px;
 `
 
 const SCWeatherDetail = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
-    height:48px;
+    height:43.2px;
     color: #222;
     font-family: Poppins, sans-serif;
-    font-size: 32px;
+    font-size: 28.8px;
     font-style: normal;
     font-weight: 400;
-    line-height: 48px;
-    margin-bottom:34px;
+    line-height: 43.2px;
+    margin-bottom:30.6px;
 `
 
 const SCDeg = styled.div`
@@ -205,25 +205,25 @@ const SCDeg = styled.div`
     align-items:flex-start;
     color:${(props) => props.customcolor};
     font-family: Poppins, sans-serif;
-    font-size: 120px;
+    font-size: 108px;
     font-style: normal;
     font-weight: 300;
-    line-height: 48px;
-    padding-bottom:40px;
+    line-height: 43.2px;
+    padding-bottom:36px;
 `
 
 const SCWeatherTemp = styled.p`
     color:${(props) => props.customcolor};
     font-family: Poppins,sans-serif;
-    font-size: 144px;
+    font-size: 130px;
     font-style: normal;
     font-weight: 300;
-    line-height: 48px;
+    line-height: 43.2px;
 `
 
 const SCWeatherIcon = styled.img`
-    width:150px;
-    height:150px;
+    width:135px;
+    height:135px;
 `
 
 const SCWeatherInfo = styled.div`
@@ -231,22 +231,22 @@ const SCWeatherInfo = styled.div`
     display: flex;
     justify-content:center;
     align-items:center;
-    height:150px;
-    margin-bottom:30px;
+    height:135px;
+    margin-bottom:27px;
 `
 
 const SCInputWrapper = styled.div`
     display:flex;
     align-items:center;
     justify-content:left;
-    width: 445px;
-    padding-left:18px;
-    margin-bottom:70px;
-    height: 80px;
+    width: 401px;
+    padding-left:16.2px;
+    margin-bottom:63px;
+    height: 72px;
     flex-shrink: 0; 
-    border-radius: 24px;
+    border-radius: 21.6px;
     background: #EDEDEF; 
-    box-shadow: 0px 24px 48px 0px rgba(49, 79, 124, 0.08); 
+    box-shadow: 0px 21.6px 43.2px 0px rgba(49, 79, 124, 0.08); 
     outline:none;
     border: 0px solid;
 `
@@ -258,10 +258,10 @@ const SCSearchInput = styled.input`
     outline:none;
     border: 0px solid;
     font-family: Montserrat, sans-serif;
-    font-size: 22px;
+    font-size: 19.8px;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px;
+    line-height: 21.6px;
     
 `
 const SCLeftPannel = styled.div`

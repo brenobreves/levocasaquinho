@@ -18,26 +18,26 @@ const SCWellcomeDesc = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items:flex-start;
-    padding:10px 0px 0px 60px;
+    padding:9px 0px 0px 54px;
     color: #222;
     font-family: Poppins, sans-serif;
-    font-size: 30px;
+    font-size: 27px;
     font-style: normal;
     font-weight: 400;
-    line-height: 60px; 
+    line-height: 54px; 
 `
 
 const SCWellcomeMsg = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items:flex-start;
-    padding:50px 0px 0px 50px;
+    padding:45px 0px 0px 45px;
     color: #222;
     font-family: Poppins, sans-serif;
-    font-size: 150px;
+    font-size: 135px;
     font-style: normal;
     font-weight: 400;
-    line-height: 160px; 
+    line-height: 144px; 
 `
 
 const SCRightPannel = styled.div`
