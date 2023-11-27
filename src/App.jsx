@@ -5,11 +5,12 @@ import { useState } from 'react'
 function App() {
   const [weather, setWeather] = useState()
   const [deg, setDeg] = useState("C")
-  const [forecast, setForecast] = useState()
+  const [forecastC, setForecastC] = useState([])
+  const [forecastF, setForecastF] = useState([])
   return ( 
     <PageContainer>
-      <LeftPannel weather={weather} setWeather={setWeather} deg={deg} setDeg={setDeg} setForecast={setForecast}/>
-      <RightPannel weather={weather} deg={deg} forecast={forecast}/>
+      <LeftPannel weather={weather} setWeather={setWeather} deg={deg} setDeg={setDeg} setForecastC={setForecastC} setForecastF={setForecastF}/>
+      <RightPannel weather={weather} deg={deg} forecastC={forecastC} forecastF={forecastF}/>
     </PageContainer>
   )
 }

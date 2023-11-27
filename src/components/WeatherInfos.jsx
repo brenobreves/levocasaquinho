@@ -1,132 +1,69 @@
 import { useState } from 'react'
 import styled from 'styled-components'
+import TodayInfo from './TodayInfo'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
-function WeatherInfos({weather, deg, forecast, today}) {
-  return ( 
+function WeatherInfos({weather, deg, forecastC, forecastF, today}) {
+    
+    const TooltipContent = (props) => {
+        if(!props.active || !props.payload){
+            return
+        }
+        const data = props.payload[0].payload
+        return(
+            <SCChartTolltip>
+                <p>{data.time}</p>
+                <SCTolltipTempSpan>{data.temp.toFixed(1)} °C</SCTolltipTempSpan>
+            </SCChartTolltip>
+        )
+    }
+  
+    return ( 
        <>
        {today ? 
-        <>
-            <SCDoubleInfoWrapper>
-                <SCInfoBlock>
-                    <SCInfoHL>
-                        Mínima
-                    </SCInfoHL>
-                    <SCInfoData>
-                        {deg === "C" ? 
-                        Math.floor(weather.main.temp_min - 273.15) 
-                        :
-                        Math.floor((weather.main.temp_min - 273.15)*1.8+32)
-                        }
-                        ° {deg}
-                    </SCInfoData>
-                </SCInfoBlock>
-
-                <SCInfoBlock>
-                    <SCInfoHL>
-                        Máxima
-                    </SCInfoHL>
-                    <SCInfoData>
-                        {deg === "C" ? 
-                        Math.floor(weather.main.temp_max - 273.15) 
-                        :
-                        Math.floor((weather.main.temp_max - 273.15)*1.8+32)
-                        }
-                        ° {deg}
-                    </SCInfoData>
-                </SCInfoBlock>
-            </SCDoubleInfoWrapper>
-
-            <SCDoubleInfoWrapper>
-                <SCInfoBlock>
-                    <SCInfoHL>
-                        Umidade
-                    </SCInfoHL>
-                    <SCInfoData>
-                        {weather.main.humidity}%
-                    </SCInfoData>
-                </SCInfoBlock>
-
-                <SCInfoBlock>
-                    <SCInfoHL>
-                        Velocidade do Vento
-                    </SCInfoHL>
-                    <SCInfoData>
-                        {weather.wind.speed.toFixed(0)} m/s
-                    </SCInfoData>
-                </SCInfoBlock>
-            </SCDoubleInfoWrapper>
-            <SCRecomendation>
-                {weather.main.temp < 290.15 || weather.main.temp_min < 290.15 ?
-                    "Sim, você deve levar um casaquinho!"
-                :
-                    "Não, você não deve levar um casaquinho!"
-                }
-            </SCRecomendation>
-        </>
+        <TodayInfo weather={weather} deg={deg}/>
         :
-        <>
-            
-        </>
+        <SCChartWrapper>
+            <LineChart data={deg === "C" ? forecastC : forecastF} width={1000} height={400} >
+                <XAxis dataKey={"time"}/>
+                <YAxis dataKey={"temp"} domain={deg === "C" ? [0,40] : [0,100]} tickFormatter={(value) => `${value}${deg === "C" ? "°C" : "°F"}`} type='number'/>
+                <CartesianGrid stroke='#e7e7e7' strokeDasharray="1000 1000"/>
+                <Line dataKey={"temp"} stroke='purple' strokeWidth={3}/>
+                <Tooltip content={TooltipContent}/>
+            </LineChart>
+        </SCChartWrapper>
         }
        </>
   )
 }
 
-const SCRecomendation = styled.div`
-    color: #AFADAD;
-    font-family: Poppins, sans-serif;
-    font-size: 24px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 48px;
-    margin-top: 50px;
+const SCTolltipTempSpan = styled.span`
+    color:#2415a7b8;
+`
+
+const SCChartWrapper = styled.div`
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    background-color:white;
     margin-left: 50px;
+    margin-top:75px;
+    height:450px;
+    width:1050px;
+    padding-right:50px;
 `
 
-const SCInfoData = styled.div`
-    width:auto;
-    height:auto;
-    color: #FFF;
-    font-family: Poppins, sans-serif;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 36px;
-    padding-top: 13px;
-`
-
-const SCInfoHL = styled.div`
-    width:auto;
-    height:auto;
-    color: #FFF;
-    font-family: Poppins, sans-serif;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
-`
-
-const SCInfoBlock = styled.div`
+const SCChartTolltip = styled.div`
     display:flex;
     flex-direction:column;
-    justify-content:center;
+    justify-content:space-evenly;
     align-items:flex-start;
-    padding:50px 0px 50px 45px;
-    border-radius:32px;
-    background: linear-gradient(117deg, #4D4494 22.83%, #4F43AE 90.03%); 
-    box-shadow: 0px 24px 48px 0px rgba(49, 79, 124, 0.08); 
-    width: 500px;
-    height: 85px;  
+    background-color: #EFEFEF;
+    border-radius:10px;
+    padding:5px;
+    height:100px;
+    padding:0px 10px 0px 10px;
+    font-family: Poppins, sans-serif;
 `
-
-const SCDoubleInfoWrapper = styled.div`
-    display:flex;
-    justify-content: space-between;
-    align-items:flex-start;
-    margin-left: 50px;
-    margin-top: 50px;
-    gap:100px;
-`
-
 
 export default WeatherInfos

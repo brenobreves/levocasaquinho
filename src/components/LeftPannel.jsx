@@ -5,7 +5,7 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import Switch from "react-switch";
 
-function LeftPannel({weather, setWeather, deg, setDeg, setForecast}) {
+function LeftPannel({weather, setWeather, deg, setDeg, setForecastC, setForecastF}) {
     const [cityName,setCityName] = useState("")
     const [iconUrl, setIconUrl] = useState("")
     const date = dayjs().format('DD/MM/YYYY')
@@ -68,7 +68,36 @@ function LeftPannel({weather, setWeather, deg, setDeg, setForecast}) {
                 console.log(erro);
             })
             getForecast.then ((response)=>{
-                setForecast(response.data)
+                const tempsArrC =  response.data.list.map((x)=>{
+                    const date = new Date(x.dt_txt)
+                    const dayofweek = date.getDay()
+                    const dayOfMonth = date.getDate();
+                    const month = date.getMonth() + 1;
+                    const formattedDay = (dayOfMonth < 10 ? '0' : '') + dayOfMonth;
+                    const formattedMonth = (month < 10 ? '0' : '') + month;
+                    const dayMonthString = `${formattedDay}/${formattedMonth}`;
+                    const obj = {
+                        temp: x.main.temp - 273.15,
+                        time: `${dayMonthString} (${semana[dayofweek].slice(0,3)})`,
+                    }
+                    return obj
+                })
+                const tempsArrF =  response.data.list.map((x)=>{
+                    const date = new Date(x.dt_txt)
+                    const dayofweek = date.getDay()
+                    const dayOfMonth = date.getDate();
+                    const month = date.getMonth() + 1;
+                    const formattedDay = (dayOfMonth < 10 ? '0' : '') + dayOfMonth;
+                    const formattedMonth = (month < 10 ? '0' : '') + month;
+                    const dayMonthString = `${formattedDay}/${formattedMonth}`;
+                    const obj = {
+                        temp: (x.main.temp - 273.15)*9 / 5 + 32,
+                        time: `${dayMonthString} (${semana[dayofweek].slice(0,3)})`,
+                    }
+                    return obj
+                })
+                setForecastC(tempsArrC)
+                setForecastF(tempsArrF)
             })
         })
     }
@@ -83,10 +112,10 @@ function LeftPannel({weather, setWeather, deg, setDeg, setForecast}) {
          <>
             <SCWeatherInfo>
                 <SCWeatherIcon src={iconUrl}/>
-                <SCWeatherTemp customColor={tempColor[weather.weather[0].icon]}>
+                <SCWeatherTemp customcolor={tempColor[weather.weather[0].icon]}>
                     {deg === "C" ? Math.floor(weather.main.temp - 273.15) : Math.floor((weather.main.temp - 273.15)*1.8+32)}
                 </SCWeatherTemp>
-                <SCDeg customColor={tempColor[weather.weather[0].icon]}>°{deg}</SCDeg>
+                <SCDeg customcolor={tempColor[weather.weather[0].icon]}>°{deg}</SCDeg>
             </SCWeatherInfo>
             <SCWeatherDetail>
                 {weather.weather[0].description[0].toUpperCase()+weather.weather[0].description.slice(1)}
@@ -174,7 +203,7 @@ const SCDeg = styled.div`
     display:flex;
     justify-content:top;
     align-items:flex-start;
-    color:${(props) => props.customColor};
+    color:${(props) => props.customcolor};
     font-family: Poppins, sans-serif;
     font-size: 120px;
     font-style: normal;
@@ -184,7 +213,7 @@ const SCDeg = styled.div`
 `
 
 const SCWeatherTemp = styled.p`
-    color:${(props) => props.customColor};
+    color:${(props) => props.customcolor};
     font-family: Poppins,sans-serif;
     font-size: 144px;
     font-style: normal;

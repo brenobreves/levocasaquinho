@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import WellcomeMsg from './WellcomeMsg'
 import WeatherInfos from './WeatherInfos'
 
-function RightPannel({weather, deg, forecast}) {
+function RightPannel({weather, deg, forecastC, forecastF}) {
     const [today, setToday] = useState(true)
   return ( 
     <SCRightPannel>
-        {!weather || !forecast ?
+        {!weather || !forecastC || !forecastF ?
         <WellcomeMsg/>
         :
         <>
@@ -20,7 +20,7 @@ function RightPannel({weather, deg, forecast}) {
                 <SCLatLon>{`Lat: ${weather.coord.lat.toFixed(2)}`}</SCLatLon>
                 <SCLatLon>{`Lon: ${weather.coord.lon.toFixed(2)}`}</SCLatLon>
             </SCLatLonWrapper>
-            <WeatherInfos weather={weather} deg={deg} forecast={forecast} today={today}/>           
+            <WeatherInfos weather={weather} deg={deg} forecastC={forecastC} forecastF={forecastF} today={today}/>           
         </>
         }
         <SCDisclaimer>
