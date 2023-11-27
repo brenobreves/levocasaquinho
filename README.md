@@ -1,8 +1,26 @@
-# React + Vite
+# Levo Casaquinho?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Nesse aplicativo o usuário pode buscar por cidades ou locais para obter informações sobre o clima atual, e caso a temperatura mínima ou atual seja inferior a 17°C será recomendado o uso de agasalhos.
 
-Currently, two official plugins are available:
+Todos os dados são obtidos na plataforma OpenWeatherAPI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Deploy Link:
+
+Você pode acessar a aplicação através do link: https://levocasaquinho.vercel.app/
+
+## Como roda em desenvolvilmento:
+
+1. Clone o repositorio
+2. Instale todas as dependencias:
+
+```bash
+npm i
+```
+
+3. Rode o comando:
+
+```bash
+npm run dev
+```
+
+4. Acesse pelo seu navegador o link de acesso local exibido no terminal, por exemplo: "http://localhost:5173/"
